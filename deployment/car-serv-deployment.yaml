@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-serv-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: car-serv
+  template:
+    metadata:
+      labels:
+        app: car-serv
+    spec:
+      containers:
+        - name: car-serv
+          image: elroydevops/car-serv
+          ports:
+            - containerPort: 8080
